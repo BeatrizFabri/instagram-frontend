@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import InputStandard from '../Components/InputStandard'
+
 import HeroImg from '../Assets/hero-img.png'
 
 function LoginMainSection() {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
     return (
         <main>
             <div className='form-login-register'>
@@ -9,14 +15,18 @@ function LoginMainSection() {
                 <form>
                     <h1>Log In</h1>
                     <fieldset>
-                        <div className='input-field'>
-                            <label for='user'>Usuário</label>
-                            <input id='user' type='text' placeholder='Digite seu email' />
-                        </div>
-                        <div className='input-field'>
-                            <label for='password'>Senha</label>
-                            <input id='password' type='password' placeholder='Senha' />
-                        </div>
+                        <InputStandard
+                            title='Usuário'
+                            type='text'
+                            state={username}
+                            setState={e => setUsername(e.target.value)}
+                        />
+                        <InputStandard
+                            title='Senha'
+                            type='password'
+                            state={password}
+                            setState={e => setPassword(e.target.value)}
+                        />
                     </fieldset>
                     <button>Entrar</button>
                 </form>

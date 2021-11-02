@@ -1,11 +1,17 @@
 import React from 'react'
 
-function InputStandard({ title, type }) {
+function InputStandard({ title, type, state, setState }) {
     return (
         <div className='input-field'>
-            <label for={title}>{title}</label>
-            <input id={title} type={type} placeholder={ `Preencha o campo ${title.toLowerCase()}`} />
-        </div>
+            <label htmlFor={title}>{title}</label>
+            <input 
+            id={title} 
+            type={type} 
+            placeholder={ `Preencha o campo ${title.toLowerCase()}`} 
+            value={state}
+            onChange={setState}
+            />
+            </div>
     )
 }
 

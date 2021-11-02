@@ -5,7 +5,7 @@ import LogoInstagram from '../Assets/instagram-logo.png'
 function HeaderNavLoggedOut() {
     return (
         <header>
-            <nav class='nav-loggedout'>
+            <nav className='nav-loggedout'>
                 <img src={LogoInstagram} alt='Logo do Instagram' />
             </nav>
         </header>

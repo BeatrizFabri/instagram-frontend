@@ -1,14 +1,14 @@
 import React from 'react'
 import RegisterMainSection from '../Components/RegisterMainSection'
-import BottomNavLoggedOut from '../Components/BottomNavLoggedOut'
 import HeaderNavLoggedOut from '../Components/HeaderNavLoggedOut'
+import BottomNavLoggedOutLogin from '../Components/BottomNavLoggedOutLogin'
 
 function Register() {
     return (
         <>
             <HeaderNavLoggedOut />
             <RegisterMainSection />
-            <BottomNavLoggedOut />
+            <BottomNavLoggedOutLogin />
         </>
 
     )
