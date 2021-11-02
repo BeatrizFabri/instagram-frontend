@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+$breakPoint: 680px;
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: 0;
+}
+
+body,button,input,textarea {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fafafa;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    height: 2.25em;
+    font-weight: bold;
+
+    background: #31a3f0;
+    color: white;
+
+    transition: 0.5s;
+
+    cursor: pointer;
+
+    &:hover {
+        background: #82c5f1;
+    }
+}
+
+header {
+
+    background: white;
+    height: 10vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: solid 1px;
+    border-bottom-color: #ccc;
+
+    nav {
+        height: 100%;
+
+        display: flex;
+        width: 80%;
+        max-width: 1000px;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            max-height: 50%;
+         }
+
+         a{
+             color: #333333;
+
+            &:hover {
+                color: rgba(94, 86, 86, 0.479);
+            }
+             
+         }
+    }
+
+    .nav-loggedout {
+        justify-content: center;
+    }
+}
+
+main {
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .form-login-register {
+        width: 100%;
+        max-width: 1000px;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 14px;
+
+        @media (max-width: $breakPoint) {
+            grid-template-columns: 1fr;
+        }
+        
+        img {
+            align-self: center;
+            justify-self: flex-end;
+
+            height: 80%;
+            max-height: 400px;
+
+            @media (max-width: $breakPoint) {
+                display: none;
+                }   
+            }
+
+        form {
+            border: solid 1px;
+            border-color: #ccc;
+
+            align-self: center;
+            background: white;
+            width: 70%;
+            height: 100%;
+            max-height: 300px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width: $breakPoint) {
+                justify-self: center;
+                }
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            fieldset {
+                width: 80%;
+                border: none;
+                padding: 1em 0;
+
+                .input-field {
+                    border: solid 1px;
+                    border-color: #ccc;
+                    border-radius: 5px;
+                    background-color: whitesmoke;
+
+                    margin: 0.5em 0;
+                    padding: 0.5em;
+                    height: 2em;
+
+                    label {
+                        display: flex;
+                        flex-direction: column;
+
+                        font-size: 0.75em;
+                        color: #333;
+                    }
+
+                    input {
+                        background-color: whitesmoke;
+                        border: none;
+                        width: 100%;
+                        margin-top: 0.25em;
+                        
+                        font-size: 1em;
+                    }
+                }
+            }
+
+            button {
+                width: 80%;
+            }
+        }
+
+    }
+
+    footer {
+        background: white;
+        width: 100%;
+        height: 10vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-top: solid 1px;
+        border-top-color: #ccc;
+
+        nav {
+            background: white;
+            height: 100%;
+            max-width: 1000px;
+            width: 80%;
+            
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: relative;
+
+            a{
+                color: #333333;
+   
+            } 
+            
+            div {
+                position: absolute;
+                right: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    font-size: 1em;
+                    margin-right: 0.75em;
+                }
+
+                a {
+                    font-size: 1em;
+                    font-weight: bold;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #7e8e99;
+                    }
+                }
+            }
+        }
+    }
