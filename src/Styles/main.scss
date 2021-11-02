@@ -179,6 +179,18 @@ main {
                 width: 80%;
             }
         }
+        .form-navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-gap: 1em;
+            width: 80%;
+
+            button {
+                background-color: #ccc;
+                color: #333333;
+                width: 100%;
+             }
+    }
 
     }
 
