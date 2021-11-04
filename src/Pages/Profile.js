@@ -2,10 +2,10 @@ import React from 'react'
 import BottomNav from '../Components/BottomNav'
 import HeaderNav from '../Components/HeaderNav'
 
-function Profile() {
+function Profile({ cleanUserId }) {
     return (
         <>
-            <HeaderNav />
+            <HeaderNav cleanUserId={cleanUserId} />
             <BottomNav />
         </>
     )

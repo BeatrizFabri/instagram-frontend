@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React, { useState } from 'react'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import Login from '../Pages/Login'
 import Register from '../Pages/Register'
@@ -9,26 +9,37 @@ import Profile from '../Pages/Profile'
 import Explorar from '../Pages/Explorar'
 
 function Router() {
+    const [userId, setUserID] = useState(localStorage.getItem('InstagramUserId'))
+    console.log(userId)
+
+    function updateUserId(user) {
+        setUserID(user)
+    }
+
+    function cleanUserId() {
+        setUserID(null)
+    }
+
     return (
         <BrowserRouter>
             <Switch>
                 <Route path='/' exact>
-                    <Login />
+                    {userId ? <Redirect to='/feed' /> : <Login updateUserId={updateUserId} />}
                 </Route>
                 <Route path='/register'>
-                    <Register />
+                    {userId ? <Redirect to='/feed' /> : <Register updateUserId={updateUserId} />}
                 </Route>
                 <Route path='/feed' >
-                    <Feed />
+                    {userId ? <Feed cleanUserId={cleanUserId} /> : <Redirect to='/' />}
                 </Route>
                 <Route path='/post' >
-                    <Post />
+                    {userId ? <Post cleanUserId={cleanUserId} /> : <Redirect to='/' />}
                 </Route>
                 <Route path='/profile' >
-                    <Profile />
+                    {userId ? <Profile cleanUserId={cleanUserId} /> : <Redirect to='/' />}
                 </Route>
                 <Route path='/explorar' >
-                    <Explorar />
+                    {userId ? <Explorar cleanUserId={cleanUserId} /> : <Redirect to='/' />}
                 </Route>
             </Switch>
         </BrowserRouter>

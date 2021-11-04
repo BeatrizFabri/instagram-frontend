@@ -3,11 +3,11 @@ import HeaderNavLoggedOut from '../Components/HeaderNavLoggedOut'
 import BottomNavLoggedOut from '../Components/BottomNavLoggedOut'
 import LoginMainSection from '../Components/LoginMainSection'
 
-function Login() {
+function Login({ updateUserId }) {
     return (
         <>
             <HeaderNavLoggedOut />
-            <LoginMainSection />
+            <LoginMainSection updateUserId={ updateUserId }/>
             <BottomNavLoggedOut />
         </>
     )

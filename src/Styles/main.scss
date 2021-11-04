@@ -44,7 +44,7 @@ button {
 header {
 
     background: white;
-    height: 10vh;
+    height: 8vh;
     width: 100%;
 
     display: flex;
@@ -68,7 +68,7 @@ header {
             max-height: 50%;
          }
 
-         a{
+         svg {
              color: #333333;
 
             &:hover {
@@ -196,7 +196,7 @@ main {
     footer {
         background: white;
         width: 100%;
-        height: 10vh;
+        height: 9vh;
 
         display: flex;
         align-items: center;
@@ -204,6 +204,9 @@ main {
 
         border-top: solid 1px;
         border-top-color: #ccc;
+
+        position: fixed;
+        bottom: 0;
 
         nav {
             background: white;
@@ -248,8 +251,16 @@ main {
             }
         }
     }
+
+    .loading-message {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+
+
     .card-container {
-        width: 40%;
+       width: 40%;
         max-width: 1000px;
 
 
@@ -267,9 +278,11 @@ main {
             align-items: center;
 
             img {
-                max-height: 4em;
+                height: 4em;
+                width: 4em;
                 border-radius: 2.25em;
                 margin-right: 1em;
+                object-fit: cover;
             }
 
             h2 {

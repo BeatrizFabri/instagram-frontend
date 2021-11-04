@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import api from '../Services/api'
+
+import login from '../Utils/login'
 
 import InputStandard from '../Components/InputStandard'
 
 import HeroImg from '../Assets/hero-img.png'
 
-function RegisterMainSection() {
+function RegisterMainSection({ updateUserId }) {
     const [show, setShow] = useState(1)
 
     const [username, setUsername] = useState('')
@@ -16,6 +19,7 @@ function RegisterMainSection() {
     const [avatar, setAvatar] = useState('')
 
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
     function loadFirstPage(e) {
         e.preventDefault()
@@ -31,7 +35,7 @@ function RegisterMainSection() {
         e.preventDefault()
         setLoading(true)
         try {
-            await api.post('users', {
+            const response = await api.post('users', {
                 username,
                 password,
                 name,
@@ -40,13 +44,14 @@ function RegisterMainSection() {
                 avatar
             })
             alert('Usuário cadastrado com sucesso')
-            setLoading(false)
-            setUsername('')
-            setPassword('')
-            setName('')
-            setDescription('')
-            setSite('')
-            setAvatar('')
+
+            login(response)
+
+            const { data } = response
+
+            updateUserId(data.data._id)
+
+            history.push('/feed')
         } catch (err) {
             alert('Erro ao cadastrar usuário, tente novamente')
             setLoading(false)
@@ -58,9 +63,9 @@ function RegisterMainSection() {
             <div className='form-login-register'>
                 <img src={HeroImg} alt='Logo do Instagram' />
                 <form>
-                    {loading ? 
+                    {loading ?
                         <h1>Criando usuário...</h1>
-                    :
+                        :
                         <>
                             <h1>Cadastrar-se</h1>
                             {show === 1 ?

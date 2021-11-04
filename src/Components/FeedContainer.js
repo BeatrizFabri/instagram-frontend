@@ -4,7 +4,8 @@ import api from '../Services/api'
 import FeedCard from '../Components/FeedCard'
 
 function FeedContainer() {
-    const [allPosts, setAllPosts] = useState([])
+    const [allPosts, setAllPosts] = useState(null)
+    console.log(allPosts)
 
     useEffect(() => {
         async function getAllPosts() {
@@ -21,8 +22,15 @@ function FeedContainer() {
 
     return (
         <>
-            {allPosts.map(post => (
-                <FeedCard key={post._id}/>
+            {allPosts === null && <h1 className='loading-message'>Carregando...</h1>}
+            {allPosts && allPosts.map(post => (
+                <FeedCard
+                    key={post._id}
+                    picture={post.picture}
+                    description={post.description}
+                    likes={post.likes}
+                    user={post.user}
+                />
             ))}
         </>
     )

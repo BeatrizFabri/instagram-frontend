@@ -4,10 +4,10 @@ import HeaderNav from '../Components/HeaderNav'
 import FeedContainer from '../Components/FeedContainer'
 import BottomNav from '../Components/BottomNav'
 
-function Feed() {
+function Feed({ cleanUserId }) {
     return (
         <>
-            <HeaderNav />
+            <HeaderNav cleanUserId={cleanUserId} />
             <FeedContainer />
             <BottomNav />
         </>
