@@ -1,17 +1,15 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import OutHeart from '../Assets/outline-heart.svg'
 import FillHeart from '../Assets/filled-heart.svg'
 
 function FeedCard({ picture, description, likes, user }) {
     const [userId, setUserID] = useState(localStorage.getItem('InstagramUserId'))
-    console.log(userId)
-    console.log(likes)
 
     return (
         <div className='card-container'>
             <div className='card-header'>
-                <img src={user.avatar} alt='profile'/>
+                <img src={user.avatar} alt='profile' />
                 <h2>{user.username}</h2>
             </div>
             <div className='card-photo'>
@@ -21,11 +19,9 @@ function FeedCard({ picture, description, likes, user }) {
             </div>
             <div className='card-footer'>
                 <div className='card-metadata'>
-                    { likes.includes(userId) ? 
-                    <img src={FillHeart} alt='Likes' /> :
-                    <img src={OutHeart} alt='Likes' /> 
+                    {likes.includes(userId) ? <img src={FillHeart} alt='Likes' /> :
+                        <img src={OutHeart} alt='Likes' />
                     }
-                    
                     {likes.length > 1 ?
                         <h3>{likes.length} pessoas curtiram</h3> : likes.length === 1 ?
                             <h3>1 pessoa curtiu</h3> :
