@@ -5,7 +5,12 @@ import FeedCard from '../Components/FeedCard'
 
 function FeedContainer() {
     const [allPosts, setAllPosts] = useState(null)
-    console.log(allPosts)
+    const [postInteraction, setPostnteraction] = useState(false)
+
+    function interaction() {
+        setPostnteraction(!postInteraction)
+        console.log(postInteraction)
+    }
 
     useEffect(() => {
         async function getAllPosts() {
@@ -18,7 +23,7 @@ function FeedContainer() {
             }
         }
         getAllPosts()
-    }, [])
+    }, [postInteraction])
 
     return (
         <>
@@ -26,10 +31,12 @@ function FeedContainer() {
             {allPosts && allPosts.map(post => (
                 <FeedCard
                     key={post._id}
+                    id={post._id}
                     picture={post.picture}
                     description={post.description}
                     likes={post.likes}
                     user={post.user}
+                    interaction={interaction}
                 />
             ))}
         </>
