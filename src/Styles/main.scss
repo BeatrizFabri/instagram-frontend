@@ -9,6 +9,7 @@ $breakPoint: 680px;
     box-sizing: 0;
 }
 
+
 body,button,input,textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -41,6 +42,7 @@ button {
     }
 }
 
+
 header {
 
     background: white;
@@ -54,6 +56,8 @@ header {
 
     border-bottom: solid 1px;
     border-bottom-color: #ccc;
+
+    position: fixed;
 
     nav {
         height: 100%;
@@ -92,6 +96,14 @@ header {
     grid-template-columns: 2fr 1fr;
     grid-gap: 1em;
 
+    margin-top: 9vh;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 5fr 1fr;
+        grid-gap: 0em;
+    }
+
     img {
         align-self: center;
         justify-self: flex-end;
@@ -118,14 +130,32 @@ header {
             justify-content: center;
             align-items: center;
 
+            @media (max-width: 1000px) {
+               min-height: 150px;
+
+               display: grid;
+               grid-template-columns: 3fr 1fr;
+               
+            }
+
             h1 {
                 font-size: 1.5em;
+                width: 80%;
+
+                @media (max-width: 1000px) {
+                    font-size: 1em;
+                    display: none;
+                }
             }
 
             fieldset {
                 width: 80%;
                 border: none;
                 padding: 1em 0;
+
+                @media (max-width: 1000px) {
+                    margin-left: 1em;
+                }
 
                 .input-field {
                     border: solid 1px;
@@ -158,6 +188,11 @@ header {
 
             button {
                 width: 80%;
+
+                @media (max-width: 1000px) {
+                    height: 30%;
+
+                }
             }
         }
         .form-navigation {
@@ -351,15 +386,14 @@ main {
 
 
     .card-container {
-       width: 40%;
-        max-width: 1000px;
+        width: 80%;
 
 
         border: solid 1px;
         border-color: #ccc;
         border-radius: 3px;
 
-        margin: 2em;
+        margin-top: 1em;
 
         .card-header {
             padding: 1.5em;
@@ -434,6 +468,8 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+
+        margin-top: 5vh;
         
         .profile-header {
             max-width: 1000px;
@@ -453,15 +489,18 @@ main {
 
             img {
                 height: 150px;
-
-                justify-self: flex-center;
+                width: 150px;
+    
+                justify-self: center;
                 align-self: center;
-
+    
+                object-fit: cover;
+    
                 border-radius: 75px;
 
                 @media (max-width: $breakPoint) {
-                    height: 100px;
-                    border-radius: 50px;
+                    height: 150px;
+                    border-radius: 150px;
                 }
 
             }
@@ -562,6 +601,27 @@ main {
         @media (max-width: 600px) {
             grid-gap: 0.5em;
         }
+
     }
     
+    
 }
+
+.feed-container {
+     max-width: 1000px;
+     width: 100%;
+
+     display: flex;
+     flex-direction: column;
+
+     justify-content: center;
+
+    margin-top: 10vh; 
+    margin-bottom: 15vh;
+    margin-left: 150px;
+
+    h1 {
+        justify-content: center;
+    }
+}
+

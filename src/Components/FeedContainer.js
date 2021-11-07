@@ -17,7 +17,7 @@ function FeedContainer() {
             try {
                 const loadedPosts = await api.get('posts')
                 const { data } = loadedPosts
-                setAllPosts(data.data)
+                setAllPosts(data.data.reverse())
             } catch (err) {
                 alert('Não foi possível carregar os posts')
             }
@@ -27,6 +27,7 @@ function FeedContainer() {
 
     return (
         <>
+        <div className='feed-container'>
             {allPosts === null && <h1 className='loading-message'>Carregando...</h1>}
             {allPosts && allPosts.map(post => (
                 <FeedCard
@@ -39,6 +40,7 @@ function FeedContainer() {
                     interaction={interaction}
                 />
             ))}
+        </div>
         </>
     )
 }

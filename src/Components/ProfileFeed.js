@@ -3,7 +3,7 @@ import React from 'react'
 function ProfileFeed({ userposts }) {   
 
     return (
-        <>            
+        <div className='profile-user'>            
             <div className='profile-pics'>
                 {userposts.map(post => (
                     <div 
@@ -14,7 +14,7 @@ function ProfileFeed({ userposts }) {
                 </div>
                 ))}                               
             </div>
-        </>
+        </div>
     )
 }
 

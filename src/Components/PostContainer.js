@@ -1,22 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import api from '../Services/api'
+import DefaultImage from '../Assets/default-image.png'
 
 import InputStandard from '../Components/InputStandard'
 
 function PostContainer() {
+    const [user] = useState(localStorage.getItem('InstagramUserId'))
+
+    const [picture, setPicture] = useState('')
+    const [description, setDescription] = useState('')
+
+    const history = useHistory()
+
+    async function postImage(e) {
+        e.preventDefault()
+        const data = {
+            picture,
+            description
+        }
+        try {
+            await api.post('posts', data, {
+                headers: {
+                    user
+                }
+            })
+            history.push('/feed')
+        } catch (err) {
+            alert('Erro ao carregar foto')
+        }
+    }
+
     return (
         <main className='post-container'>
-            <img src='https://images.unsplash.com/photo-1595901688281-9cef114adb0b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGltZXMlMjBzcXVhcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80' alt='' />
+            {picture ?
+                <img src={picture} alt={description} /> :
+                <img src={DefaultImage} alt='Insira uma nova imagem' />
+            }
             <form>
                 <h1>Postar nova foto</h1>
                 <fieldset>
                     <InputStandard
-                        title='Usuário'
+                        title='Link da foto'
                         type='text'
-                        state=''
-                        setState={() => { }}
+                        state={picture}
+                        setState={e => setPicture(e.target.value)}
+                    />
+                    <InputStandard
+                        title='Descrição'
+                        type='text'
+                        state={description}
+                        setState={e => setDescription(e.target.value)}
                     />
                 </fieldset>
-                <button>Postar foto</button>
+                <button onClick={postImage}>Postar foto</button>
             </form>
         </main>
     )

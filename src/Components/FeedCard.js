@@ -16,8 +16,7 @@ function FeedCard({ picture, description, likes, user, id, interaction }) {
                 }
             })
             interaction()
-            //alert('Foto curtida com sucesso')
-        } catch(err) {
+        } catch (err) {
             alert('IMpossível curtir postagem')
         }
     }
@@ -30,8 +29,8 @@ function FeedCard({ picture, description, likes, user, id, interaction }) {
                 }
             })
             interaction()
-           // alert('Foto descurtida com sucesso')
-        } catch(err) {
+            // alert('Foto descurtida com sucesso')
+        } catch (err) {
             alert('Impossível descurtir postagem')
         }
     }
@@ -49,16 +48,16 @@ function FeedCard({ picture, description, likes, user, id, interaction }) {
             </div>
             <div className='card-footer'>
                 <div className='card-metadata'>
-                    {likes.includes(userId) ? 
-                    <img 
-                    src={FillHeart} 
-                    alt='Likes' 
-                    onClick={()=>{unlikeAPost()}}
-                    /> :
-                        <img 
-                        src={OutHeart} 
-                        alt='Likes' 
-                        onClick={()=>{likeAPost()}}
+                    {likes.includes(userId) ?
+                        <img
+                            src={FillHeart}
+                            alt='Likes'
+                            onClick={() => { unlikeAPost() }}
+                        /> :
+                        <img
+                            src={OutHeart}
+                            alt='Likes'
+                            onClick={() => { likeAPost() }}
                         />
                     }
                     {likes.length > 1 ?
