@@ -9,6 +9,7 @@ function ProfileContainer() {
     const [userId] = useState(localStorage.getItem('InstagramUserId'))
     const [userInformations, setUserInformations] = useState({})  
     const [userPosts, setUserPosts] = useState([])  
+    
 
     useEffect(() => {
         async function getProfileInfo() {            
