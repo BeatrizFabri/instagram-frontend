@@ -6,11 +6,9 @@ import api from '../Services/api'
 function ExplorarCard({ picture, description }) {
 
     return (
-        <div className='card-container'>
-            <div className='card-photo'>
-                <img
-                    src={picture}
-                    alt={description} />
+        <div className="pin_container">
+            <div className="card card_small">
+                <img className="foto" src={picture} alt={description} />
             </div>
         </div>
     )

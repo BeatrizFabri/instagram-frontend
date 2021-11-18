@@ -17,7 +17,7 @@ function ExplorarContainer() {
             try {
                 const loadedPosts = await api.get('posts')
                 const { data } = loadedPosts
-                setAllPosts(data.data.reverse())
+                setAllPosts(data.data)
             } catch (err) {
                 alert('Não foi possível carregar os posts')
             }
@@ -46,3 +46,5 @@ function ExplorarContainer() {
 }
 
 export default ExplorarContainer
+
+
