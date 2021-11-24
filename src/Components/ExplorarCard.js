@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import api from '../Services/api'
-
-
-function ExplorarCard({ picture, description }) {
-
+function ExplorarCard() {
     return (
-        <div className="pin_container">
-            <div className="card card_small">
-                <img className="foto" src={picture} alt={description} />
-            </div>
+        <div>
+            
         </div>
     )
 }
+
 export default ExplorarCard
-
-
