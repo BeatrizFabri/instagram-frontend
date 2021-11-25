@@ -34,7 +34,7 @@ function ExplorarContainer() {
                 <img className="foto" src="https://p2.trrsf.com/image/fget/cf/648/0/images.terra.com/2021/09/23/2021-09-23T143123Z_1_LYNXMPEH8M0KI_RTROPTP_3_FUT-CRONALDO-FORBES.JPG" />
             </div>
             <div className="card card_large">
-                <img className="foto" src="https://lh3.googleusercontent.com/proxy/F_QKhqgKPUkzaYwTOKwwXpyl1g1An0xejhJUDP-B1mf2omY3VMW3zT-fS_Hl7pq_hezE-aOjrglQ1CFOmMbLKVsTvVqkftHcFbFXsFSfyrf9ZomplYraEtg" />
+                <img className="foto" src="https://br.jetss.com/wp-content/uploads/2018/11/jogadores-de-futebol-mais-valiosos-killiam.jpg" />
             </div>
             <div className="card card_med">
                 <img className="foto" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/1021E/production/_101687066_montaa1.jpg" />
